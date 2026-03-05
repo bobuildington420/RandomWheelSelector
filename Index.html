@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Random Selector Wheel</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <h1>Random Selector Wheel</h1>
+        <p>Enter items (one per line). The wheel updates automatically. Click the wheel or SPIN.</p>
+      </header>
+
+      <main class="main">
+        <section class="left">
+          <div class="card">
+            <label for="items">Your items</label>
+            <textarea id="items" placeholder="e.g.&#10;Pizza&#10;Sushi&#10;Tacos"></textarea>
+
+            <div class="row">
+              <button id="spinBtn" class="primary">SPIN</button>
+              <button id="shuffleColorsBtn" class="ghost" title="New color palette">Shuffle colors</button>
+              <button id="clearBtn" class="ghost">Clear</button>
+            </div>
+
+            <div class="row small">
+              <label class="inline">
+                <input type="checkbox" id="removeWinner" />
+                Remove winner after spin
+              </label>
+
+              <label class="inline">
+                Spin time
+                <input id="spinTime" type="range" min="2" max="8" step="0.5" value="4" />
+                <span id="spinTimeVal">4.0s</span>
+              </label>
+            </div>
+
+            <div class="result" aria-live="polite">
+              <span class="resultLabel">Winner:</span>
+              <span id="winner" class="winner">—</span>
+            </div>
+
+            <div class="hint">
+              Tip: You can also separate items with commas, and blank lines are ignored.
+            </div>
+          </div>
+        </section>
+
+        <section class="right">
+          <div class="wheelWrap card">
+            <div class="pointer" aria-hidden="true"></div>
+            <canvas id="wheel" width="720" height="720" role="img" aria-label="Selector wheel"></canvas>
+
+            <button id="centerBtn" class="centerBtn" title="Spin" aria-label="Spin">
+              SPIN
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span id="count">0 items</span>
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
